@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "kluster-a700"
+    labels:
+        app: "kluster-a700"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: kluster8d9b-kluster-a700.e538aafe680a481383bf.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "kluster-a700"
+                servicePort: 80
