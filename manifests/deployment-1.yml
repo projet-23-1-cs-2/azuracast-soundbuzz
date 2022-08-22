@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "kluster-a700"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "kluster-a700"
+  template:
+    metadata:
+      labels:
+        app: "kluster-a700"
+    spec:
+      containers:
+        - name: "kluster-a700"
+          image: "soundbuzz.azurecr.io/kluster"
+          ports:
+          - containerPort: 80
